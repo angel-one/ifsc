@@ -125,70 +125,65 @@ func TestGetBankCodeFromIfsc(t *testing.T) {
 		code     string
 	}{
 		{"Andhra Pragathi Grameena Bank", "APGB0000001", "APGB"},
-		{"Au Small Finance Bank Ltd", "AUBL0002122", "AUBL"},
+		{"AU Small Finance Bank", "AUBL0002122", "AUBL"},
 		{"Axis Bank", "UTIB0000175", "UTIB"},
-		{"Bandhan Bank Limited", "BDBL0001934", "BDBL"},
-		{"Bank Of Baroda", "BARB0DIGVIJ", "BARB"},
-		{"Bank Of India", "BKID0003250", "BKID"},
-		{"Bank Of Maharashtra", "MAHB0000014", "MAHB"},
+		{"Bandhan Bank", "BDBL0001934", "BDBL"},
+		{"Bank of Baroda", "BARB0DIGVIJ", "BARB"},
+		{"Bank of India", "BKID0003250", "BKID"},
+		{"Bank of Maharashtra", "MAHB0000014", "MAHB"},
 		{"Canara Bank", "CNRB0000386", "CNRB"},
-		{"Central Bank Of India", "CBIN0280580", "CBIN"},
+		{"Central Bank of India", "CBIN0280580", "CBIN"},
 		{"CITI Bank", "CITI0000007", "CITI"},
-		{"City Union Bank Ltd", "CIUB0000498", "CIUB"},
-		{"DBS Bank India Ltd", "DBSS0IN0827", "DBSS"},
-		{"DCB Bank Ltd", "DCBL0000368", "DCBL"},
-		{"Deutsche Bank AG", "DEUT0797TRS", "DEUT"},
-		{"Dhanalaxmi Bank", "DLXB0000143", "DLXB"},
-		{"Equitas Small Finance Bank Ltd", "ESFB0007017", "ESFB"},
-		{"Esaf Small Finance Bank Limited", "ESMF0001148", "ESMF"},
+		{"City Union Bank", "CIUB0000498", "CIUB"},
+		{"Development Bank of Singapore", "DBSS0IN0827", "DBSS"},
+		{"DCB Bank", "DCBL0000368", "DCBL"},
+		{"Deutsche Bank", "DEUT0797TRS", "DEUT"},
+		{"Dhanlaxmi Bank", "DLXB0000143", "DLXB"},
+		{"Equitas Small Finance Bank", "ESFB0007017", "ESFB"},
+		{"Esaf Small Finance Bank", "ESMF0001148", "ESMF"},
 		{"Federal Bank", "FDRL0002127", "FDRL"},
-		{"HDFC Bank Ltd", "HDFC0000569", "HDFC"},
-		{"ICICI Bank Ltd", "ICIC0003486", "ICIC"},
-		{"IDBI Bank", "IBKL0000427", "IBKL"},
-		{"IDFC First Bank Ltd", "IDFB0042642", "IDFB"},
+		{"HDFC Bank", "HDFC0000569", "HDFC"},
+		{"ICICI Bank", "ICIC0003486", "ICIC"},
+		{"IDBI", "IBKL0000427", "IBKL"},
+		{"IDFC FIRST Bank", "IDFB0042642", "IDFB"},
 		{"Indian Bank", "IDIB000J005", "IDIB"},
 		{"Indian Overseas Bank", "IOBA0000417", "IOBA"},
-		{"IndusInd Bank", "INDB0000065", "INDB"},
-		{"JANA SMALL FINANCE BANK LTD", "JSFB0003074", "JSFB"},
-		{"Karnataka Bank Ltd", "KARB0000372", "KARB"},
+		{"Indusind Bank", "INDB0000065", "INDB"},
+		{"Jana Small Finance Bank", "JSFB0003074", "JSFB"},
+		{"Karnataka Bank", "KARB0000372", "KARB"},
 		{"Karnataka Vikas Grameena Bank", "KVGB0006301", "KVGB"},
 		{"Karur Vysya Bank", "KVBL0002203", "KVBL"},
-		{"Kotak Mahindra Bank Ltd", "KKBK0002936", "KKBK"},
-		{"Paytm Payments Bank Ltd", "PYTM0123456", "PYTM"},
-		{"Punjab and Sind Bank", "PSIB0000411", "PSIB"},
+		{"Kotak Mahindra Bank", "KKBK0002936", "KKBK"},
+		{"Paytm Payments Bank", "PYTM0123456", "PYTM"},
+		{"Punjab & Sind Bank", "PSIB0000411", "PSIB"},
 		{"Punjab National Bank", "PUNB0022400", "PUNB"},
-		{"RBL Bank Ltd", "RATN0000243", "RATN"},
-		{"Shivalik Mercantile Co-op Bank Ltd.", "SMCB0001017", "SMCB"},
+		{"RBL Bank", "RATN0000243", "RATN"},
+		{"Shivalik Small Finance Bank", "SMCB0001017", "SMCB"},
 		{"South Indian Bank", "SIBL0000361", "SIBL"},
-		{"Standard Chartered Bank Ltd", "SCBL0036064", "SCBL"},
-		{"State Bank Of India", "SBIN0012211", "SBIN"},
-		{"Suryoday Small Finance Bank Ltd", "SURY0000018", "SURY"},
-		{"Tamilnad Mercantile Bank Ltd", "TMBL0000113", "TMBL"},
-		{"The Catholic Syrian Bank", "CSBK0000262", "CSBK"},
-		{"The Chembur Nagarik Sahakari Bank", "ICIC00CNSBL", "CNSX"},
-		{"The Cosmos Co-operative Bank Ltd", "COSB0000056", "COSB"},
-		{"The Hongkong and Shanghai Banking Corporation Ltd", "HSBC0380002", "HSBC"},
-		{"The Jammu And Kashmir Bank Ltd", "JAKA0AHAMAD", "JAKA"},
-		{"The Kalupur Commercial Co-operative Bank", "KCCB0RJT057", "KCCB"},
-		{"The Varachha Co-op Bank Ltd.", "VARA0289008", "VARA"},
+		{"Standard Chartered Bank", "SCBL0036064", "SCBL"},
+		{"State Bank of India", "SBIN0012211", "SBIN"},
+		{"Suryoday Small Finance Bank", "SURY0000018", "SURY"},
+		{"Tamilnad Mercantile Bank", "TMBL0000113", "TMBL"},
+		{"Catholic Syrian Bank", "CSBK0000262", "CSBK"},
+		{"Chembur Nagarik Sahakari Bank", "ICIC00CNSBL", "CNSX"},
+		{"Cosmos Co-operative Bank", "COSB0000056", "COSB"},
+		{"Hongkong & Shanghai Banking Corporation", "HSBC0380002", "HSBC"},
+		{"Jammu and Kashmir Bank", "JAKA0AHAMAD", "JAKA"},
+		{"Kalupur Commercial Co-operative Bank", "KCCB0RJT057", "KCCB"},
+		{"Varachha Co-operative Bank", "VARA0289008", "VARA"},
 		{"UCO Bank", "UCBA0000081", "UCBA"},
-		{"Ujjivan Small Finance Bank Ltd", "UJVN0004516", "USFB"},
-		{"Union Bank Of India", "UBIN0531511", "UBIN"},
-		{"Yes Bank Ltd", "YESB0000533", "YESB"},
+		{"Ujjivan Small Finance Bank", "UJVN0004516", "USFB"},
+		{"Union Bank of India", "UBIN0531511", "UBIN"},
+		{"Yes Bank", "YESB0000533", "YESB"},
 	}
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			bankCode, err := GetBankCodeFromIfsc(test.ifscCode)
-			if err != nil {
-				t.Logf("[TestGetBankCodeFromIfsc] unexpected error: %+v", err)
-				t.FailNow()
-			}
-
-			if bankCode != test.code {
-				t.Logf("[TestGetBankCodeFromIfsc] bank code did not match. Expected: %s & Actual: %s", test.code, bankCode)
-				t.FailNow()
-			}
+			bankDetails, err := GetBankDetailsFromIfscCode(test.ifscCode)
+			assert := assert.New(t)
+			assert.Nil(err)
+			assert.Equal(bankDetails.Code, test.code)
+			assert.Equal(bankDetails.Name, test.name)
 		})
 	}
 }

@@ -165,7 +165,7 @@ func GetBankName(code string) (string, error) {
 	return bankName, nil
 }
 
-func GetBankCodeFromIfsc(ifscCode string) (string, error) {
+func getBankCodeFromIfsc(ifscCode string) (string, error) {
 	if !Validate(ifscCode) {
 		return "", ErrInvalidIFSCCode
 	}
@@ -174,7 +174,7 @@ func GetBankCodeFromIfsc(ifscCode string) (string, error) {
 		return bankCode, nil
 	}
 
-	bankCode, err := GetCustomSubletCode(ifscCode)
+	bankCode, err := getCustomSubletCode(ifscCode)
 	if err == nil {
 		return bankCode, nil
 	}
@@ -182,13 +182,33 @@ func GetBankCodeFromIfsc(ifscCode string) (string, error) {
 	return ifscCode[0:4], nil
 }
 
-func GetCustomSubletCode(code string) (string, error) {
+func getCustomSubletCode(code string) (string, error) {
 	for key, value := range customSublets {
 		if len(code) >= len(key) && code[0:len(key)] == key {
 			return value, nil
 		}
 	}
 	return "", ErrCustomSubletNotFound
+}
+
+func GetBankDetailsFromIfscCode(ifscCode string) (*BankDetails, error) {
+	bankCode, err := getBankCodeFromIfsc(ifscCode)
+	if err != nil {
+		return nil, err
+	}
+	return GetBankDetailsFromBankCode(bankCode)
+}
+
+func GetBankDetailsFromBankCode(code string) (*BankDetails, error) {
+	bankName, found := bankNames[code]
+	if !found {
+		return nil, ErrInvalidCode
+	}
+
+	return &BankDetails{
+		Name: bankName,
+		Code: code,
+	}, nil
 }
 
 func GetCustomSubletName(code string) (string, error) {

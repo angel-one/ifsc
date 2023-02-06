@@ -20,6 +20,11 @@ type Bank struct {
 	Upi       bool   `json:"upi",omitempty`
 }
 
+type BankDetails struct {
+	Name string `json:"name"`
+	Code string `json:"code"`
+}
+
 var bankData map[string]Bank
 
 func LoadBankData() {
