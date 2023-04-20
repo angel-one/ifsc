@@ -1,7 +1,6 @@
 package ifsc
 
 import (
-	"embed"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -11,6 +10,8 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
+
+	"github.com/angel-one/ifsc/v2/src"
 )
 
 var ifscMap map[string][]Data
@@ -18,12 +19,7 @@ var bankNames map[string]string
 var sublet map[string]string
 var customSublets map[string]string
 
-//go:embed data/banks.json
-//go:embed data/banknames.json
-//go:embed data/IFSC.json
-//go:embed data/custom-sublets.json
-//go:embed data/sublet.json
-var embeddedFileStorage embed.FS
+var embeddedFileStorage = src.EmbeddedFileStorage
 
 type Data struct {
 	Value string
