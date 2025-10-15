@@ -212,6 +212,7 @@ class Bank
     const BTCX = 'BTCX';
     const BTUX = 'BTUX';
     const BUBX = 'BUBX';
+    const BUCB = 'BUCB';
     const BUCL = 'BUCL';
     const BUCX = 'BUCX';
     const BUGX = 'BUGX';
@@ -1297,6 +1298,7 @@ class Bank
     const TGDX = 'TGDX';
     const TGMB = 'TGMB';
     const TGNX = 'TGNX';
+    const TGRB = 'TGRB';
     const TGUX = 'TGUX';
     const THCX = 'THCX';
     const THMX = 'THMX';
@@ -1487,6 +1489,7 @@ class Bank
     const WUCX = 'WUCX';
     const WZUX = 'WZUX';
     const XJKG = 'XJKG';
+    const XNSE = 'XNSE';
     const YADX = 'YADX';
     const YAVX = 'YAVX';
     const YCBX = 'YCBX';

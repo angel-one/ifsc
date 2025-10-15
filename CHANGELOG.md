@@ -4,6 +4,62 @@ All notable changes to this project will be documented in this file. The format 
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [UNRELEASED][unreleased]
+## [2.0.48][2.0.48]
+### Changed
+- Metadata updates
+- BUCB bank name update
+
+## [UNRELEASED][unreleased]
+## [2.0.47.1][2.0.47.1]
+### Changed
+- TGRB bank name udpate 
+- IDIB000B668 and INDB0001960 contact update 
+
+## [2.0.47][2.0.47]
+### Changed
+- Metadata updates
+
+## [2.0.45][2.0.45]
+### Changed
+- Metadata updates
+
+## [2.0.44][2.0.44]
+### Changed
+- Metadata updates
+
+## [2.0.43][2.0.43]
+### Changed
+- Metadata updates
+
+## [2.0.42][2.0.42]
+### Changed
+- Metadata updates
+
+## [2.0.41][2.0.41]
+### Changed
+- Metadata updates
+- Ruby Version Update to 3.1
+
+## [2.0.40][2.0.40]
+### Changed
+- Metadata updates
+
+## [2.0.39][2.0.39]
+### Changed
+- Metadata updates
+
+## [2.0.38][2.0.38]
+### Changed
+- Metadata updates
+
+## [2.0.37][2.0.37]
+### Changed
+- Metadata updates
+
+## [2.0.36][2.0.36]
+### Changed
+- Metadata updates
+- Support for XNSE (NSE Clearing Limited) added. `XNSE0000001` is the branch.
 
 ## [2.0.35][2.0.35]
 ### Changed

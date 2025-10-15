@@ -208,6 +208,7 @@ module Razorpay
       BTCX = :BTCX
       BTUX = :BTUX
       BUBX = :BUBX
+      BUCB = :BUCB
       BUCL = :BUCL
       BUCX = :BUCX
       BUGX = :BUGX
@@ -1293,6 +1294,7 @@ module Razorpay
       TGDX = :TGDX
       TGMB = :TGMB
       TGNX = :TGNX
+      TGRB = :TGRB
       TGUX = :TGUX
       THCX = :THCX
       THMX = :THMX
@@ -1483,6 +1485,7 @@ module Razorpay
       WUCX = :WUCX
       WZUX = :WZUX
       XJKG = :XJKG
+      XNSE = :XNSE
       YADX = :YADX
       YAVX = :YAVX
       YCBX = :YCBX
