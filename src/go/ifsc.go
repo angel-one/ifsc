@@ -4,12 +4,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"path"
 	"runtime"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/angel-one/ifsc/v2/src"
 )
@@ -188,6 +191,50 @@ func getCustomSubletCode(code string) (string, error) {
 }
 
 func GetBankDetailsFromIfscCode(ifscCode string) (*BankDetails, error) {
+	bankDetails, err := getBankDetailsFromIfscCode(ifscCode)
+	if err == nil {
+		return bankDetails, nil
+	}
+
+	return getBankDetailsFromIfscApi(ifscCode)
+}
+
+func getBankDetailsFromIfscApi(ifscCode string) (*BankDetails, error) {
+	url := "https://ifsc.razorpay.com/" + ifscCode
+
+	httpClient := &http.Client{}
+	httpClient.Timeout = time.Second
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := httpClient.Do(req)
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
+	}
+
+	var response SearchResponse
+	err = json.Unmarshal(body, &response)
+	if err != nil {
+		return nil, err
+	}
+
+	return &BankDetails{
+		Name: response.Bank,
+		Code: response.BankCode,
+	}, nil
+}
+
+func getBankDetailsFromIfscCode(ifscCode string) (*BankDetails, error) {
 	bankCode, err := getBankCodeFromIfsc(ifscCode)
 	if err != nil {
 		return nil, err

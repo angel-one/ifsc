@@ -20,6 +20,11 @@ type Bank struct {
 	Upi       bool   `json:"upi",omitempty`
 }
 
+type SearchResponse struct {
+	Bank     string `json:"BANK"`
+	BankCode string `json:"BANKCODE"`
+}
+
 type BankDetails struct {
 	Name string `json:"name"`
 	Code string `json:"code"`
