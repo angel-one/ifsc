@@ -72,7 +72,7 @@ func init() {
 
 func LoadFile(fileName string, result interface{}, fullDirPath string) error {
 
-	if bytes, err := embeddedFileStorage.ReadFile("data/" + fileName); err == nil {
+	if bytes, err := embeddedFileStorage.ReadFile(fileName); err == nil {
 		if erro := json.Unmarshal(bytes, &result); erro != nil {
 			return erro
 		}
