@@ -1,7 +1,6 @@
 package ifsc
 
 import (
-	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -188,7 +187,7 @@ func getCustomSubletCode(code string) (string, error) {
 	return "", ErrCustomSubletNotFound
 }
 
-func GetBankDetailsFromIfscCode(context context.Context, ifscCode string) (*BankDetails, error) {
+func GetBankDetailsFromIfscCode(ifscCode string) (*BankDetails, error) {
 	bankDetails, err := getBankDetailsFromIfscCode(ifscCode)
 	if err == nil {
 		return bankDetails, nil
