@@ -151,7 +151,7 @@ func TestGetBankCodeFromIfsc(t *testing.T) {
 		{"Indusind Bank", "INDB0000065", "INDB"},
 		{"Jana Small Finance Bank", "JSFB0003074", "JSFB"},
 		{"Karnataka Bank", "KARB0000372", "KARB"},
-		{"Karnataka Vikas Grameena Bank", "KVGB0006301", "KVGB"},
+		{"Karnataka Vikas Grameena Bank", "KVGB0000001", "KVGB"},
 		{"Karur Vysya Bank", "KVBL0002203", "KVBL"},
 		{"Kotak Mahindra Bank", "KKBK0002936", "KKBK"},
 		{"Paytm Payments Bank", "PYTM0123456", "PYTM"},
