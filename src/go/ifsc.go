@@ -193,6 +193,10 @@ func GetBankDetailsFromIfscCode(ifscCode string) (*BankDetails, error) {
 		return bankDetails, nil
 	}
 
+	if len(ifsc) != 11 {
+		return err
+	}
+
 	resp, err := LookUP(ifscCode)
 	if err != nil {
 		return nil, err
