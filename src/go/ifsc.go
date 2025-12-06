@@ -4,12 +4,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"path"
 	"runtime"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/angel-one/ifsc/v2/src"
 )
@@ -188,24 +191,16 @@ func getCustomSubletCode(code string) (string, error) {
 }
 
 func GetBankDetailsFromIfscCode(ifscCode string) (*BankDetails, error) {
+	if len(ifscCode) != 11 {
+		return nil, ErrInvalidIFSCCode
+	}
+
 	bankDetails, err := getBankDetailsFromIfscCode(ifscCode)
 	if err == nil {
 		return bankDetails, nil
 	}
 
-	if len(ifsc) != 11 {
-		return err
-	}
-
-	resp, err := LookUP(ifscCode)
-	if err != nil {
-		return nil, err
-	}
-
-	return &BankDetails{
-		Name: *resp.Bank,
-		Code: *resp.BankCode,
-	}, nil
+	return getBankDetailsFromIfscApi(ifscCode)
 }
 
 func getBankDetailsFromIfscCode(ifscCode string) (*BankDetails, error) {
@@ -226,6 +221,50 @@ func GetBankDetailsFromBankCode(code string) (*BankDetails, error) {
 		Name: bankName,
 		Code: code,
 	}, nil
+}
+
+func getBankDetailsFromIfscApi(ifscCode string) (*BankDetails, error) {
+	url := "https://ifsc.razorpay.com/" + ifscCode
+
+	httpClient := &http.Client{}
+	httpClient.Timeout = time.Second
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := httpClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			log.Println("error while closing response body", err)
+		}
+	}(res.Body)
+
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode == http.StatusOK {
+		var response SearchResponse
+		err = json.Unmarshal(body, &response)
+		if err != nil {
+			return nil, err
+		}
+
+		return &BankDetails{
+			Name: response.Bank,
+			Code: response.BankCode,
+		}, nil
+	} else if res.StatusCode == http.StatusNotFound {
+		return nil, ErrInvalidIFSCCode
+	}
+
+	return nil, ErrInvalidResponse
 }
 
 func GetCustomSubletName(code string) (string, error) {
